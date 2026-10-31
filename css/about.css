@@ -1,0 +1,1 @@
+.values{background:var(--cream)}.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.value-grid .card p{color:var(--muted)}@media(max-width:700px){.value-grid{grid-template-columns:1fr}}

@@ -1,0 +1,1 @@
+.industry-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.industry-grid article{border:1px solid var(--line)}.industry-grid img{width:100%;height:230px;object-fit:cover}.industry-grid article div{padding:25px}.industry-grid h2{font-size:1.55rem;margin:12px 0}.industry-grid p{color:var(--muted)}@media(max-width:800px){.industry-grid{grid-template-columns:1fr}}

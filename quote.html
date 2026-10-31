@@ -1,0 +1,882 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Request a Freight Quote | Roshan Transport Transport</title>
+
+  <meta name="description" content="Request a pan-India transport quote. Share pickup and delivery locations, cargo details, weight and vehicle requirements.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://www.example.com/quote.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/quote.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container nav-wrap">
+
+    <a class="brand" href="index.html" aria-label="Roshan Transport Transport home">
+      <span class="brand-mark">R</span>
+      <span>
+        Roshan Transport
+        <small>Road Transport Services</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle"
+            aria-label="Toggle navigation"
+            aria-expanded="false">
+      Menu
+    </button>
+
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="industries.html">Industries</a>
+      <a href="contact.html">Contact</a>
+      <a class="button button-small" href="quote.html">
+        Request a quote <span>↗</span>
+      </a>
+    </nav>
+
+  </div>
+</header>
+
+
+<main>
+
+  <!-- PAGE INTRO -->
+  <div class="page-hero">
+    <div class="container">
+
+      <div class="breadcrumb">
+        <a href="index.html">Home</a> / Request a quote
+      </div>
+
+      <span class="eyebrow">Request a transport quote</span>
+
+      <h1>Tell us what you need to transport.</h1>
+
+      <p class="lead">
+        Share your pickup locations, destinations and cargo requirements.
+        You can submit multiple transport requirements in a single enquiry.
+        Our team will contact you with vehicle availability and freight details.
+      </p>
+
+    </div>
+  </div>
+
+
+  <!-- QUOTE FORM -->
+  <section class="section">
+
+    <div class="container form-layout">
+
+      <!-- FORM SIDEBAR -->
+      <div class="form-intro">
+
+        <span class="eyebrow">Pan India transportation</span>
+
+        <h2>One enquiry. Multiple transport requirements.</h2>
+
+        <p class="lead">
+          Whether you need one vehicle or multiple vehicles on different
+          routes, share your requirements together.
+        </p>
+
+        <div class="form-aside">
+          <strong>Prefer to speak?</strong>
+
+          <p>
+            Call
+            <a href="tel:+910000000000">+91 00000 00000</a>
+            or message us on
+            <a href="https://wa.me/910000000000">WhatsApp</a>.
+          </p>
+        </div>
+
+      </div>
+
+
+      <!-- MAIN FORM -->
+      <form class="card request-form"
+            id="quoteForm"
+            data-api-form="/api/quotes">
+
+        <!-- CLIENT DETAILS -->
+        <section class="form-section">
+
+          <div class="form-section-heading">
+            <span class="eyebrow">01 / Contact information</span>
+            <h2>Your details</h2>
+            <p>How can our team reach you?</p>
+          </div>
+
+          <div class="form-grid">
+
+            <div class="field">
+              <label for="name">Your name *</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                maxlength="100"
+                autocomplete="name"
+                placeholder="Full name">
+            </div>
+
+            <div class="field">
+              <label for="company">Company name</label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                maxlength="120"
+                autocomplete="organization"
+                placeholder="Company / business name">
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone number *</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                maxlength="20"
+                autocomplete="tel"
+                inputmode="tel"
+                placeholder="+91 XXXXX XXXXX">
+            </div>
+
+            <div class="field">
+              <label for="email">Email address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                maxlength="160"
+                autocomplete="email"
+                placeholder="Optional">
+            </div>
+
+            <div class="field field-full">
+              <label class="checkbox-label" for="whatsapp">
+                <input
+                  type="checkbox"
+                  id="whatsapp"
+                  name="whatsappAvailable"
+                  value="true">
+                This phone number is also available on WhatsApp.
+              </label>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- TRANSPORT REQUIREMENTS -->
+        <section class="form-section">
+
+          <div class="form-section-heading">
+            <span class="eyebrow">02 / Transport requirements</span>
+            <h2>Your shipments</h2>
+            <p>
+              Add each pickup-to-delivery requirement separately.
+              You can add multiple routes.
+            </p>
+          </div>
+
+
+          <!-- SHIPMENT LIST -->
+          <div id="shipmentsList" class="shipments-list">
+
+            <!-- FIRST SHIPMENT -->
+            <fieldset class="shipment-card" data-shipment-index="0">
+
+              <legend class="shipment-legend">
+                <span class="shipment-number">Transport 1</span>
+              </legend>
+
+
+              <!-- PICKUP AND DELIVERY -->
+              <div class="location-grid">
+
+                <!-- PICKUP -->
+                <div class="location-panel pickup-panel">
+
+                  <div class="location-heading">
+                    <span class="location-indicator pickup-indicator"></span>
+                    <h3>Pickup location</h3>
+                  </div>
+
+                  <div class="field">
+                    <label for="pickupState0">State *</label>
+                    <select
+                      id="pickupState0"
+                      name="shipments[0][pickup][state]"
+                      required>
+                      <option value="">Select state</option>
+                      <option value="Andhra Pradesh">Andhra Pradesh</option>
+                      <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                      <option value="Assam">Assam</option>
+                      <option value="Bihar">Bihar</option>
+                      <option value="Chhattisgarh">Chhattisgarh</option>
+                      <option value="Goa">Goa</option>
+                      <option value="Gujarat">Gujarat</option>
+                      <option value="Haryana">Haryana</option>
+                      <option value="Himachal Pradesh">Himachal Pradesh</option>
+                      <option value="Jharkhand">Jharkhand</option>
+                      <option value="Karnataka">Karnataka</option>
+                      <option value="Kerala">Kerala</option>
+                      <option value="Madhya Pradesh">Madhya Pradesh</option>
+                      <option value="Maharashtra">Maharashtra</option>
+                      <option value="Manipur">Manipur</option>
+                      <option value="Meghalaya">Meghalaya</option>
+                      <option value="Mizoram">Mizoram</option>
+                      <option value="Nagaland">Nagaland</option>
+                      <option value="Odisha">Odisha</option>
+                      <option value="Punjab">Punjab</option>
+                      <option value="Rajasthan">Rajasthan</option>
+                      <option value="Sikkim">Sikkim</option>
+                      <option value="Tamil Nadu">Tamil Nadu</option>
+                      <option value="Telangana">Telangana</option>
+                      <option value="Tripura">Tripura</option>
+                      <option value="Uttar Pradesh">Uttar Pradesh</option>
+                      <option value="Uttarakhand">Uttarakhand</option>
+                      <option value="West Bengal">West Bengal</option>
+                      <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                      <option value="Chandigarh">Chandigarh</option>
+                      <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                      <option value="Delhi">Delhi</option>
+                      <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                      <option value="Ladakh">Ladakh</option>
+                      <option value="Lakshadweep">Lakshadweep</option>
+                      <option value="Puducherry">Puducherry</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label for="pickupCity0">City / District *</label>
+                    <input
+                      type="text"
+                      id="pickupCity0"
+                      name="shipments[0][pickup][city]"
+                      required
+                      maxlength="100"
+                      placeholder="Search city"
+                      autocomplete="off">
+                  </div>
+
+                  <div class="field">
+                    <label for="pickupLocality0">
+                      Locality / Industrial area
+                      <span class="optional-label">Optional</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="pickupLocality0"
+                      name="shipments[0][pickup][locality]"
+                      maxlength="150"
+                      placeholder="Area, factory, warehouse">
+                  </div>
+
+                  <div class="field">
+                    <label for="pickupPincode0">
+                      PIN code
+                      <span class="optional-label">Optional</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="pickupPincode0"
+                      name="shipments[0][pickup][pincode]"
+                      maxlength="6"
+                      pattern="[0-9]{6}"
+                      inputmode="numeric"
+                      placeholder="6-digit PIN code">
+                  </div>
+
+                </div>
+
+
+                <!-- DELIVERY -->
+                <div class="location-panel delivery-panel">
+
+                  <div class="location-heading">
+                    <span class="location-indicator delivery-indicator"></span>
+                    <h3>Delivery location</h3>
+                  </div>
+
+                  <div class="field">
+                    <label for="deliveryState0">State *</label>
+                    <select
+                      id="deliveryState0"
+                      name="shipments[0][delivery][state]"
+                      required>
+                      <option value="">Select state</option>
+                      <option value="Andhra Pradesh">Andhra Pradesh</option>
+                      <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                      <option value="Assam">Assam</option>
+                      <option value="Bihar">Bihar</option>
+                      <option value="Chhattisgarh">Chhattisgarh</option>
+                      <option value="Goa">Goa</option>
+                      <option value="Gujarat">Gujarat</option>
+                      <option value="Haryana">Haryana</option>
+                      <option value="Himachal Pradesh">Himachal Pradesh</option>
+                      <option value="Jharkhand">Jharkhand</option>
+                      <option value="Karnataka">Karnataka</option>
+                      <option value="Kerala">Kerala</option>
+                      <option value="Madhya Pradesh">Madhya Pradesh</option>
+                      <option value="Maharashtra">Maharashtra</option>
+                      <option value="Manipur">Manipur</option>
+                      <option value="Meghalaya">Meghalaya</option>
+                      <option value="Mizoram">Mizoram</option>
+                      <option value="Nagaland">Nagaland</option>
+                      <option value="Odisha">Odisha</option>
+                      <option value="Punjab">Punjab</option>
+                      <option value="Rajasthan">Rajasthan</option>
+                      <option value="Sikkim">Sikkim</option>
+                      <option value="Tamil Nadu">Tamil Nadu</option>
+                      <option value="Telangana">Telangana</option>
+                      <option value="Tripura">Tripura</option>
+                      <option value="Uttar Pradesh">Uttar Pradesh</option>
+                      <option value="Uttarakhand">Uttarakhand</option>
+                      <option value="West Bengal">West Bengal</option>
+                      <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                      <option value="Chandigarh">Chandigarh</option>
+                      <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                      <option value="Delhi">Delhi</option>
+                      <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                      <option value="Ladakh">Ladakh</option>
+                      <option value="Lakshadweep">Lakshadweep</option>
+                      <option value="Puducherry">Puducherry</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label for="deliveryCity0">City / District *</label>
+                    <input
+                      type="text"
+                      id="deliveryCity0"
+                      name="shipments[0][delivery][city]"
+                      required
+                      maxlength="100"
+                      placeholder="Search city"
+                      autocomplete="off">
+                  </div>
+
+                  <div class="field">
+                    <label for="deliveryLocality0">
+                      Locality / Industrial area
+                      <span class="optional-label">Optional</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="deliveryLocality0"
+                      name="shipments[0][delivery][locality]"
+                      maxlength="150"
+                      placeholder="Area, factory, warehouse">
+                  </div>
+
+                  <div class="field">
+                    <label for="deliveryPincode0">
+                      PIN code
+                      <span class="optional-label">Optional</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="deliveryPincode0"
+                      name="shipments[0][delivery][pincode]"
+                      maxlength="6"
+                      pattern="[0-9]{6}"
+                      inputmode="numeric"
+                      placeholder="6-digit PIN code">
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <!-- CARGO DETAILS -->
+              <div class="shipment-details">
+
+                <div class="field">
+                  <label for="cargo0">Cargo / Material *</label>
+                  <input
+                    type="text"
+                    id="cargo0"
+                    name="shipments[0][cargo]"
+                    required
+                    maxlength="180"
+                    placeholder="e.g. Cement, tiles, machinery">
+                </div>
+
+                <div class="field">
+                  <label for="weight0">Approximate weight *</label>
+                  <input
+                    type="text"
+                    id="weight0"
+                    name="shipments[0][weight]"
+                    required
+                    maxlength="80"
+                    placeholder="e.g. 8 MT / 20 tonnes">
+                </div>
+
+                <div class="field">
+                  <label for="vehicleType0">Vehicle type / size</label>
+                  <select
+                    id="vehicleType0"
+                    name="shipments[0][vehicleType]">
+                    <option value="">Select if known</option>
+                    <option>Pickup / mini goods vehicle</option>
+                    <option>LCV / 14 ft</option>
+                    <option>17 ft / 19 ft</option>
+                    <option>22 ft</option>
+                    <option>6-wheel truck</option>
+                    <option>10-wheel truck</option>
+                    <option>12-wheel truck</option>
+                    <option>14-wheel / 16-wheel truck</option>
+                    <option>18-wheel / multi-axle</option>
+                    <option>32 ft SXL / MXL</option>
+                    <option>Trailer</option>
+                    <option>Other / special vehicle</option>
+                    <option>Not sure - suggest a vehicle</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="loadingDate0">Expected loading date</label>
+                  <input
+                    type="date"
+                    id="loadingDate0"
+                    name="shipments[0][loadingDate]">
+                </div>
+
+              </div>
+
+            </fieldset>
+
+          </div>
+
+
+          <!-- ADD ANOTHER SHIPMENT -->
+          <button
+            type="button"
+            class="button button-secondary"
+            id="addShipment">
+            + Add another transport
+          </button>
+
+
+          <!-- TEMPLATE FOR DYNAMIC SHIPMENTS -->
+          <template id="shipmentTemplate">
+
+            <fieldset class="shipment-card" data-shipment-index="__INDEX__">
+
+              <legend class="shipment-legend">
+                <span class="shipment-number">Transport __NUMBER__</span>
+
+                <button
+                  type="button"
+                  class="remove-shipment"
+                  aria-label="Remove this transport"
+                  title="Remove transport">
+                  &times;
+                </button>
+              </legend>
+
+
+              <div class="location-grid">
+
+                <div class="location-panel pickup-panel">
+
+                  <div class="location-heading">
+                    <span class="location-indicator pickup-indicator"></span>
+                    <h3>Pickup location</h3>
+                  </div>
+
+                  <div class="field">
+                    <label for="pickupState__INDEX__">State *</label>
+                    <select
+                      id="pickupState__INDEX__"
+                      name="shipments[__INDEX__][pickup][state]"
+                      required>
+                      <option value="">Select state</option>
+                      <option value="Andhra Pradesh">Andhra Pradesh</option>
+                      <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                      <option value="Assam">Assam</option>
+                      <option value="Bihar">Bihar</option>
+                      <option value="Chhattisgarh">Chhattisgarh</option>
+                      <option value="Goa">Goa</option>
+                      <option value="Gujarat">Gujarat</option>
+                      <option value="Haryana">Haryana</option>
+                      <option value="Himachal Pradesh">Himachal Pradesh</option>
+                      <option value="Jharkhand">Jharkhand</option>
+                      <option value="Karnataka">Karnataka</option>
+                      <option value="Kerala">Kerala</option>
+                      <option value="Madhya Pradesh">Madhya Pradesh</option>
+                      <option value="Maharashtra">Maharashtra</option>
+                      <option value="Manipur">Manipur</option>
+                      <option value="Meghalaya">Meghalaya</option>
+                      <option value="Mizoram">Mizoram</option>
+                      <option value="Nagaland">Nagaland</option>
+                      <option value="Odisha">Odisha</option>
+                      <option value="Punjab">Punjab</option>
+                      <option value="Rajasthan">Rajasthan</option>
+                      <option value="Sikkim">Sikkim</option>
+                      <option value="Tamil Nadu">Tamil Nadu</option>
+                      <option value="Telangana">Telangana</option>
+                      <option value="Tripura">Tripura</option>
+                      <option value="Uttar Pradesh">Uttar Pradesh</option>
+                      <option value="Uttarakhand">Uttarakhand</option>
+                      <option value="West Bengal">West Bengal</option>
+                      <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                      <option value="Chandigarh">Chandigarh</option>
+                      <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                      <option value="Delhi">Delhi</option>
+                      <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                      <option value="Ladakh">Ladakh</option>
+                      <option value="Lakshadweep">Lakshadweep</option>
+                      <option value="Puducherry">Puducherry</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label for="pickupCity__INDEX__">City / District *</label>
+                    <input
+                      type="text"
+                      id="pickupCity__INDEX__"
+                      name="shipments[__INDEX__][pickup][city]"
+                      required
+                      maxlength="100"
+                      placeholder="Search city"
+                      autocomplete="off">
+                  </div>
+
+                  <div class="field">
+                    <label for="pickupLocality__INDEX__">
+                      Locality / Industrial area
+                      <span class="optional-label">Optional</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="pickupLocality__INDEX__"
+                      name="shipments[__INDEX__][pickup][locality]"
+                      maxlength="150"
+                      placeholder="Area, factory, warehouse">
+                  </div>
+
+                  <div class="field">
+                    <label for="pickupPincode__INDEX__">
+                      PIN code <span class="optional-label">Optional</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="pickupPincode__INDEX__"
+                      name="shipments[__INDEX__][pickup][pincode]"
+                      maxlength="6"
+                      pattern="[0-9]{6}"
+                      inputmode="numeric"
+                      placeholder="6-digit PIN code">
+                  </div>
+
+                </div>
+
+
+                <div class="location-panel delivery-panel">
+
+                  <div class="location-heading">
+                    <span class="location-indicator delivery-indicator"></span>
+                    <h3>Delivery location</h3>
+                  </div>
+
+                  <div class="field">
+                    <label for="deliveryState__INDEX__">State *</label>
+                    <select
+                      id="deliveryState__INDEX__"
+                      name="shipments[__INDEX__][delivery][state]"
+                      required>
+                      <option value="">Select state</option>
+                      <option value="Andhra Pradesh">Andhra Pradesh</option>
+                      <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                      <option value="Assam">Assam</option>
+                      <option value="Bihar">Bihar</option>
+                      <option value="Chhattisgarh">Chhattisgarh</option>
+                      <option value="Goa">Goa</option>
+                      <option value="Gujarat">Gujarat</option>
+                      <option value="Haryana">Haryana</option>
+                      <option value="Himachal Pradesh">Himachal Pradesh</option>
+                      <option value="Jharkhand">Jharkhand</option>
+                      <option value="Karnataka">Karnataka</option>
+                      <option value="Kerala">Kerala</option>
+                      <option value="Madhya Pradesh">Madhya Pradesh</option>
+                      <option value="Maharashtra">Maharashtra</option>
+                      <option value="Manipur">Manipur</option>
+                      <option value="Meghalaya">Meghalaya</option>
+                      <option value="Mizoram">Mizoram</option>
+                      <option value="Nagaland">Nagaland</option>
+                      <option value="Odisha">Odisha</option>
+                      <option value="Punjab">Punjab</option>
+                      <option value="Rajasthan">Rajasthan</option>
+                      <option value="Sikkim">Sikkim</option>
+                      <option value="Tamil Nadu">Tamil Nadu</option>
+                      <option value="Telangana">Telangana</option>
+                      <option value="Tripura">Tripura</option>
+                      <option value="Uttar Pradesh">Uttar Pradesh</option>
+                      <option value="Uttarakhand">Uttarakhand</option>
+                      <option value="West Bengal">West Bengal</option>
+                      <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                      <option value="Chandigarh">Chandigarh</option>
+                      <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                      <option value="Delhi">Delhi</option>
+                      <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                      <option value="Ladakh">Ladakh</option>
+                      <option value="Lakshadweep">Lakshadweep</option>
+                      <option value="Puducherry">Puducherry</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label for="deliveryCity__INDEX__">City / District *</label>
+                    <input
+                      type="text"
+                      id="deliveryCity__INDEX__"
+                      name="shipments[__INDEX__][delivery][city]"
+                      required
+                      maxlength="100"
+                      placeholder="Search city"
+                      autocomplete="off">
+                  </div>
+
+                  <div class="field">
+                    <label for="deliveryLocality__INDEX__">
+                      Locality / Industrial area
+                      <span class="optional-label">Optional</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="deliveryLocality__INDEX__"
+                      name="shipments[__INDEX__][delivery][locality]"
+                      maxlength="150"
+                      placeholder="Area, factory, warehouse">
+                  </div>
+
+                  <div class="field">
+                    <label for="deliveryPincode__INDEX__">
+                      PIN code <span class="optional-label">Optional</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="deliveryPincode__INDEX__"
+                      name="shipments[__INDEX__][delivery][pincode]"
+                      maxlength="6"
+                      pattern="[0-9]{6}"
+                      inputmode="numeric"
+                      placeholder="6-digit PIN code">
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div class="shipment-details">
+
+                <div class="field">
+                  <label for="cargo__INDEX__">Cargo / Material *</label>
+                  <input
+                    type="text"
+                    id="cargo__INDEX__"
+                    name="shipments[__INDEX__][cargo]"
+                    required
+                    maxlength="180"
+                    placeholder="e.g. Cement, tiles, machinery">
+                </div>
+
+                <div class="field">
+                  <label for="weight__INDEX__">Approximate weight *</label>
+                  <input
+                    type="text"
+                    id="weight__INDEX__"
+                    name="shipments[__INDEX__][weight]"
+                    required
+                    maxlength="80"
+                    placeholder="e.g. 8 MT / 20 tonnes">
+                </div>
+
+                <div class="field">
+                  <label for="vehicleType__INDEX__">Vehicle type / size</label>
+                  <select
+                    id="vehicleType__INDEX__"
+                    name="shipments[__INDEX__][vehicleType]">
+                    <option value="">Select if known</option>
+                    <option>Pickup / mini goods vehicle</option>
+                    <option>LCV / 14 ft</option>
+                    <option>17 ft / 19 ft</option>
+                    <option>22 ft</option>
+                    <option>6-wheel truck</option>
+                    <option>10-wheel truck</option>
+                    <option>12-wheel truck</option>
+                    <option>14-wheel / 16-wheel truck</option>
+                    <option>18-wheel / multi-axle</option>
+                    <option>32 ft SXL / MXL</option>
+                    <option>Trailer</option>
+                    <option>Other / special vehicle</option>
+                    <option>Not sure - suggest a vehicle</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="loadingDate__INDEX__">Expected loading date</label>
+                  <input
+                    type="date"
+                    id="loadingDate__INDEX__"
+                    name="shipments[__INDEX__][loadingDate]">
+                </div>
+
+              </div>
+
+            </fieldset>
+
+          </template>
+
+        </section>
+
+
+        <!-- ADDITIONAL INFORMATION -->
+        <section class="form-section">
+
+          <div class="form-section-heading">
+            <span class="eyebrow">03 / Additional information</span>
+            <h2>Anything else?</h2>
+            <p>Share any other information about your requirements.</p>
+          </div>
+
+          <div class="field">
+            <label for="message">Additional details</label>
+            <textarea
+              id="message"
+              name="message"
+              maxlength="2000"
+              rows="4"
+              placeholder="Special handling requirements, delivery instructions, number of vehicles, etc."></textarea>
+          </div>
+
+        </section>
+
+
+        <!-- SUBMIT -->
+        <div class="form-submit">
+
+          <button class="button" type="submit">
+            Send quote request ↗
+          </button>
+
+          <p class="form-note">
+            Submitting this enquiry does not confirm a vehicle booking
+            or final freight rate. Our team will contact you to discuss
+            availability and pricing.
+          </p>
+
+          <p class="form-status"
+             role="status"
+             aria-live="polite"></p>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+        <a class="brand" href="index.html">
+          <span class="brand-mark">N</span>
+          <span>
+            Roshan Transport
+            <small>Road Transport Services</small>
+          </span>
+        </a>
+
+        <p style="max-width:300px;margin-top:20px">
+          Road transport services for businesses across India,
+          backed by more than 25 years of experience.
+        </p>
+      </div>
+
+      <div>
+        <h3>EXPLORE</h3>
+        <div class="footer-links">
+          <a href="about.html">About us</a>
+          <a href="services.html">Services</a>
+          <a href="industries.html">Industries</a>
+          <a href="quote.html">Request a quote</a>
+        </div>
+      </div>
+
+      <div>
+        <h3>GET IN TOUCH</h3>
+        <div class="footer-links">
+          <a href="tel:+910000000000">+91 00000 00000</a>
+          <a href="mailto:hello@example.com">hello@example.com</a>
+          <a href="https://wa.me/910000000000">WhatsApp</a>
+        </div>
+      </div>
+
+       <div><h3>GET IN TOUCH</h3><div class="footer-links"><a href="tel:+919826425866">+91 98264 25866</a><a href="mailto:roshantransport66@yahoo.com">roshantransport66@yahoo.com</a><a href="https://wa.me/919826425866">WhatsApp</a></div></div>
+      <div><h3>OFFICE</h3><p>AB Road, Madhumilan Chauraha, Dewas, Madhya Pradesh.</p><a href="contact.html">Contact details ↗</a></div>
+   
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>
+        © <span data-year></span> Roshan Transport Transport.
+        All rights reserved.
+      </span>
+
+      <span>Serving business transportation requirements across India.</span>
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- SCRIPTS -->
+<script>
+  document.querySelectorAll('[data-year]').forEach(el => {
+    el.textContent = new Date().getFullYear();
+  });
+</script>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+<script src="js/forms.js"></script>
+<script src="js/admin.js"></script>
+
+</body>
+</html>
